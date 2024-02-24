@@ -1,0 +1,288 @@
+CREATE DATABASE IMDB
+
+USE imdb
+
+INSERT INTO movie(name,cast,`directed by`,language,`Release date`) Values('varisu','vijay,rashmika','vamshi paidipally','Tamil,English,Malayalam,Telugu','11 Jan 2023');
+INSERT INTO movie(name,cast,`directed by`,language,`Release date`) Values('vikram','Kamal Hassan,Fahadh Fassil,Vijay Sethupathy','Lokesh','Tamil,English,Malayalam,Telugu,Kannada','03 Jun 2022');
+INSERT INTO movie(name,cast,`directed by`,language,`Release date`) Values('Thunivu','Ajith Kumar,Manju warrier','H.Vinoth','Tamil,Malayalam,Telugu,Hindi','11 Jan 2023'),
+('Jailer','RajniKanth,Ramya Krishnan,Mohan lal','Nelson','Tamil,English,Malayalam,Telugu,Hindi,Kannada','09 Aug 2023'),
+('Ghilli','Vijay,Trisha','Dharani','Tamil','17 Apr 2004');
+
+SELECT * FROM movie
+
+
+
+
+***************************************************************
+// Output - movie table.png
+
+	6	varisu	vijay,rashmika	vamshi paidipally	Tamil,English,Malayalam,Telugu	11 Jan 2023	2024-02-23 13:51:25
+	7	vikram	Kamal Hassan,Fahadh Fassil,Vijay Sethupathy	Lokesh	Tamil,English,Malayalam,Telugu,Kannada	03 Jun 2022	2024-02-23 14:13:20
+	8	Thunivu	Ajith Kumar,Manju warrier	H.Vinoth	Tamil,Malayalam,Telugu,Hindi	11 Jan 2023	2024-02-23 14:21:59
+	9	Jailer	RajniKanth,Ramya Krishnan,Mohan lal	Nelson	Tamil,English,Malayalam,Telugu,Hindi,Kannada	09 Aug 2023	2024-02-23 14:21:59
+	10	Ghilli	Vijay,Trisha	Dharani	Tamil	17 Apr 2004	2024-02-23 14:21:59
+******************************************************************
+
+
+
+ALTER TABLE `media format`
+DROP COLUMN language
+
+INSERT INTO `media format`(video,audio,movie_id) Values('MP4 , webM ,mkv','MP3, DTS , Dolby Atmos',6);
+INSERT INTO `media format`(video,audio,movie_id) Values('MP4,webM,MOV,AVI','MP3,Dolby Atmos ,DTS-HD,AVI',7),
+('MP4,MOV','MP3,Dolby Atmos ,DTS-HD',8),
+('MP4,webM,mkv','MP3,Dolby Atmos ,DTS-HD',9),
+('MP4,MOV,AVI','MP3,Dolby Atmos',10);
+
+SELECT * FROM `media format`
+
+
+
+***********************************************************************
+// Output - media format.png
+
+8	MP4 , webM ,mkv	MP3, DTS , Dolby Atmos	6
+9	MP4,webM,MOV,AVI	MP3,Dolby Atmos ,DTS-HD,AVI	7
+10	MP4,MOV	MP3,Dolby Atmos ,DTS-HD	8
+11	MP4,webM,mkv	MP3,Dolby Atmos ,DTS-HD	9
+12	MP4,MOV,AVI	MP3,Dolby Atmos	10
+*************************************************************************
+
+
+
+
+INSERT INTO artist(`artist name`,skills,movie_id) Values('vijay','Acting,dance,singing,communication,stamina',6),
+('rashmika','Acting,dance,singing,communication,stamina,gymnastics',6),
+('Kamal Hassan','Acting,dance,singing,gymnastics',7),
+('Fahadh Fassil','Acting,communication,creativity,stamina',7),
+('Vijay Sethupathy','Acting,communication,stamina,dance',7),
+('Ajith Kumar','Acting,Pilot,Car racer,drone specialist',8),
+('Manju warrier','Acting,dance',8),
+('RajniKanth','Acting,communication,stamina,sprituality',9),
+('Ramya Krishnan','Acting,dance,creativity',9),
+('Mohan lal','Acting,gymnastics,martial arts',9),
+('Vijay','Acting,dance,singing,communication,stamina',10),
+('Trisha','Acting,dance,singing,communication,model',10);
+
+
+  SELECT * FROM artist;
+
+
+
+  *************************************************************************
+  Output - artist.png
+
+  1	vijay	Acting,dance,singing,communication,stamina	6
+2	rashmika	Acting,dance,singing,communication,stamina,gymnastics	6
+3	Kamal Hassan	Acting,dance,singing,gymnastics	7
+4	Fahadh Fassil	Acting,communication,creativity,stamina	7
+5	Vijay Sethupathy	Acting,communication,stamina,dance	7
+6	Ajith Kumar	Acting,Pilot,Car racer,drone specialist	8
+7	Manju warrier	Acting,dance	8
+8	RajniKanth	Acting,communication,stamina,sprituality	9
+9	Ramya Krishnan	Acting,dance,creativity	9
+10	Mohan lal	Acting,gymnastics,martial arts	9
+11	Vijay	Acting,dance,singing,communication,stamina	10
+12	Trisha	Acting,dance,singing,communication,model	10
+*********************************************************************************
+
+
+
+INSERT INTO casting(`artist name`,`roles performed`,movie_id)Values('vijay','Rajendran son, chairman of company',6),
+('rashmika','lady love of vijay',6),
+('Kamal Hassan','adopted father , ex raw agent',7),
+('Fahadh Fassil','Spy',7),
+('Vijay Sethupathi','Anti hero,drug dealer',7),
+('Ajith Kumar','International thief,Hero',8),
+('Manju warrier','Ajith partner in robberies',8),
+('RajniKanth','ex Jailer,ACP father',9),
+('Ramya Krishnan','Rajni wife,ACP mother',9),
+('Mohan lal','Rajni friend , Special apperanace',9),
+('Vijay','Hero,Kabbadi Team captian',10),
+('Trisha','Love Interest of Vijay',10);
+
+
+******************************************************************************
+Output - casting.png
+
+1	vijay	Rajendran son, chairman of company	6
+2	rashmika	lady love of vijay	6
+3	Kamal Hassan	adopted father , ex raw agent	7
+4	Fahadh Fassil	Spy	7
+5	Vijay Sethupathi	Anti hero,drug dealer	7
+6	Ajith Kumar	International thief,Hero	8
+7	Manju warrier	Ajith partner in robberies	8
+8	RajniKanth	ex Jailer,ACP father	9
+9	Ramya Krishnan	Rajni wife,ACP mother	9
+10	Mohan lal	Rajni friend , Special apperanace	9
+11	Vijay	Hero,Kabbadi Team captian	10
+12	Trisha	Love Interest of Vijay	10
+**********************************************************************************
+
+
+
+INSERT INTO genre(` movie name`,genres,movie_id) Values('varisu','action , comedy ,romance ,drama ',6),
+('vikram','action,drama,thriller,crime,suspense',7),
+('Thunivu','Action,thriller,drama,crime fiction,gangster',8),
+('Jailer','comedy,action thriller,crime film',9),
+('Ghilli','comedy,action,romance,sports,drama',10);
+
+
+******************************************************************************
+Output - genre.png
+
+11	varisu	action , comedy ,romance ,drama 	6
+12	vikram	action,drama,thriller,crime,suspense	7
+13	Thunivu	Action,thriller,drama,crime fiction,gangster	8
+14	Jailer	comedy,action thriller,crime film	9
+15	Ghilli	comedy,action,romance,sports,drama	10
+*********************************************************************************
+
+
+
+INSERT INTO reviews(`movie review`,movie_id)Values('Vamshi rides on the traditional templated family drama plot which makes it less engaging in the beginning but as the film progresses it does entertain and ends on a high note with emotional value. Though it gives an overall feel of watching a Telugu film, Vijay makes the difference with his hallmark heroic mass moments, stylish dance, comedy, and counter dialogues which gives a satisfying watch. 
+Yogi Babu  comedy encounter with Vijay worked out well. Jayasudha and Sarathkumar delivered flawless performances. Shrikanth and Shaam are perfect choices to play the toxic brother characters. Prakash Raj has very little scope to play the antagonist role. SJ Surya makes a cameo in the second half and his combo with Vijay is entertaining. Overall Vamshi provided equal screen space for all supporting roles but Vijay score the maximum with his lighting performance.  Be it dance or Be it one-liner or Be it emotional scene, Vijay gave a promising performance for his fan base and neutral audience',6);
+
+INSERT INTO reviews(`movie review`,movie_id)Values('Contrary to many Youyube reviewers views this movie is worth watching multiple times.
+Its a very good  family  story with excellent screenplay that does not bore you even for a moment.
+Vijay show all the way.He single-handedly carries the story.He is superbly stylish in this movie.Costumes excellent in this movie.
+Vijay is just supremely entertaining in all aspects like Dance,comedy,emotions and Action scenes.
+I have seen the movie atleast 3 times since OTT release.Never get bored of it',6),('
+Watched Varisu with family today. Thank you Vijay sir and Vamsi sir for giving a feel good film after long time. The movie has a decent storyline blend with comedy, family emotions, good songs and heart touching climax. Thaman BGM elevates some of the slow portions in the first half but second half is much better. The interval block is epic.
+We saw the vintage Vijay especially in the comedy and romance portions. As usual his dance numbers are a delight to watch, in particular for jimikki and ranjithame songs. Overall a decent family entertainer 👌',6),('An amazing movie and a must watch for everyone... Frankly, I dont feel there is a lag or drag at all... 3 hours just flies off taking all our attention and leaves us in a smile while we walk out.. 
+A complete pack entertainer.. Wishes to the entire team for a grand success Movies are made to entertain us with a beautiful message..so why crib on something irrelevant when you get it all in this movie... Just sit back and enjoy it all over',6);
+
+INSERT INTO reviews(`movie review`,movie_id)Values('Vikram was a pure labor of passion and a 100% directorial venture of Lokesh so far in his filmography. I loved “Kaithi” movie but when I compare it with Vikram the daughter sentiment portion that Kaithi had was taking a bit more space or like mellowing down the screen play where as in Vikram we see a husband trying to save his wife , a grand father trying to save his grand son, drug lord trying to save his empire but these where handled with a subtle note such a way it didn’t spoil the thriller that was unfolding in front of us. Some  brilliant screen play out here',7),
+('Directed by Lokesh Kanagaraj, VIKRAM  is a Solid well-made & smartly-written investigative Gangster thriller that is uniquely stylish, wildly ambitious and brilliantly layered action blockbuster that succeeds viscerally as well as cerebrally, featuring some of the best Face offs & action set pieces you’ll ever see',7),
+('What an entertainer!! I would call this movie a fire cracker which bursts with high decibels continuously for 3 hours albeit with less sound for few intermittent minutes. I watched by walking to a theater 6kms away from the place I stay and I felt so happy and enjoyed each and every moment of this movie',7),
+('Oh my goodness, what an epic movie that was! Not sure how to describe in a single word! To handle Aandhavar in such a gangster movie is so challenging but he has done exceptional very well. VJS,Fahad & Narian has nailed it! Interval scenes oh my god cant express it again same like Kaithi would say its more than that, excellent screenplay,bgm, editing we had everything what a film lovers need! Awesome stunts!',7),
+('Awesome movie with excellent writing by Lokesh as he created a universe by continuing from where he left off in Kaithi. He has given equal space to Kamal Haasan, Vijay Sethupathi and Faahid Faasal and what a cameo by Suriya.
+It is a very entertaining action thriller movie. Excellent BGM by Anirudh.
+Pathala Pathala song placement is perfect with fine choreography',7),
+('Best action sequences with Mass and Terrific act ..makes the screenplay Racy. Everyone did their role well. THALA the King has arrived and conquered in his style.First half racing like a rocket with several twist and jaw dropping scenes .We all have experience the second half story in our day today life.Big actor like AK and director H.vinoth delivered the truth about money investment. No guts No glory. This story will fireup with all type of audience',8),
+('Excellent movie. Action by AK is superb. One will not be bored throughout the movie. Manju warriors is equally good as AK. The movie takes up the subject of scams and cheating of public by financial institutions. But here I beg to differ. After watching this movie there will be many who will stop investing in Mutual Funds.But MF especially SIP is beneficial for people in the long run.So, this movie sends a wrong signal',8),
+('Jailer is a captivating cinematic masterpiece that leaves audiences on the edge of their seats from start to finish. The gripping storyline, combined with stellar performances from the cast especially Thalaivar and Laletten. Super dance choreography and  performance by Tamanna and team , creates an immersive experience that stays with you long after the credits roll. The films expertly crafted suspense and unexpected twists make it a must-watch for anyone who appreciates a thrilling and thought-provoking movie. Jailer exceptional direction, cinematography, and soundtrack all come together to deliver an unforgettable cinematic journey that will leave you craving more.A big kudos to Anirudh and Nelson .Congratulations',9),
+('It is good to see Superstar Rajinikanth in a solid role after a long time. His characterization is well designed by Nelson. Rajinikanth underplays for the most part of the first half, and he transforms into a menacing force as the film progresses. This has been superbly shown, and the interval block is terrific',9),
+('Indulged in a lavish feast watching thalaivar on the grand big screen, and that too on the FDFS. Nelsons direction and screenplay were truly scintillating, presenting an amazing blend of dark comedy and high-octane action. He truly harnessed Thalaivar prowess, extracting his best performance. The cameos seamlessly integrated into the storyline, with Shivaraj, Mohanlal, and Jackie leaving a profound impact despite their brief presence. Vinayagam was impeccable, making a substantial contribution to the triumph. The near three-hour runtime effortlessly sailed by, keeping us on edge with exhilaration. Rajini sir is no way 73! Love you thalaivaa',9),
+('Ghilli, a 2004 Tamil film directed by Dharani, set the trends of the 00s era. A not-so intense masala film, filled with light-hearted humour and some great peppy songs, Ghilli just raised the bars set by Okkadu. From screenplay, acting, violent sequences to the climax, everything was top-notch',10),
+('One of the evergreen best movies of kollywood. both vijays mannerism and prakshraj villanism were lit.Trisha is good in her character.This movie will definitely lift up ur mood.comedy,family,romace,friends,fight,songs,villainisim everything was perfectly balanced.Go and watch you will never regret it',10),
+('That was the movie that Thalapathy become all south asian girl dream lover. Thalapathy always prove that what talented actor is he. Thrisha also play nicely. Overall it is still fantastic movie. Love all the songs in the film.',10),
+('if you want watch racy action movie one of the best fast movie in vijay career and its also turnpoint  to career of vijay. must watch with family good songs and power full action screen play all is perfect.',10);
+
+
+  SELECT * FROM reviews;
+
+
+************************************************************************************
+Output - reviews.png
+
+1	Vamshi rides on the traditional templated family drama plot which makes it less engaging in the beginning but as the film progresses it does entertain and ends on a high note with emotional value. Though it gives an overall feel of watching a Telugu film...	6
+2	Vamshi rides on the traditional templated family drama plot which makes it less engaging in the beginning but as the film progresses it does entertain and ends on a high note with emotional value. Though it gives an overall feel of watching a Telugu film...	6
+3	Contrary to many Youyube reviewers views this movie is worth watching multiple times.
+ Its a very good  family  story with excellent screenplay that does not bore you even for a moment.
+ Vijay show all the way.He single-handedly carries the story.He is sup...	6
+4	
+ Watched Varisu with family today. Thank you Vijay sir and Vamsi sir for giving a feel good film after long time. The movie has a decent storyline blend with comedy, family emotions, good songs and heart touching climax. Thaman BGM elevates some of the s...	6
+5	An amazing movie and a must watch for everyone... Frankly, I dont feel there is a lag or drag at all... 3 hours just flies off taking all our attention and leaves us in a smile while we walk out.. 
+ A complete pack entertainer.. Wishes to the entire team ...	6
+6	Vikram was a pure labor of passion and a 100% directorial venture of Lokesh so far in his filmography. I loved “Kaithi” movie but when I compare it with Vikram the daughter sentiment portion that Kaithi had was taking a bit more space or like mellowi...	7
+7	Directed by Lokesh Kanagaraj, VIKRAM  is a Solid well-made & smartly-written investigative Gangster thriller that is uniquely stylish, wildly ambitious and brilliantly layered action blockbuster that succeeds viscerally as well as cerebrally, featuring s...	7
+8	What an entertainer!! I would call this movie a fire cracker which bursts with high decibels continuously for 3 hours albeit with less sound for few intermittent minutes. I watched by walking to a theater 6kms away from the place I stay and I felt so hap...	7
+9	Oh my goodness, what an epic movie that was! Not sure how to describe in a single word! To handle Aandhavar in such a gangster movie is so challenging but he has done exceptional very well. VJS,Fahad & Narian has nailed it! Interval scenes oh my god cant...	7
+10	Awesome movie with excellent writing by Lokesh as he created a universe by continuing from where he left off in Kaithi. He has given equal space to Kamal Haasan, Vijay Sethupathi and Faahid Faasal and what a cameo by Suriya.
+ It is a very entertaining act...	7
+11	Best action sequences with Mass and Terrific act ..makes the screenplay Racy. Everyone did their role well. THALA the King has arrived and conquered in his style.First half racing like a rocket with several twist and jaw dropping scenes .We all have expe...	8
+12	Excellent movie. Action by AK is superb. One will not be bored throughout the movie. Manju warriors is equally good as AK. The movie takes up the subject of scams and cheating of public by financial institutions. But here I beg to differ. After watching ...	8
+13	Jailer is a captivating cinematic masterpiece that leaves audiences on the edge of their seats from start to finish. The gripping storyline, combined with stellar performances from the cast especially Thalaivar and Laletten. Super dance choreography and ...	9
+14	It is good to see Superstar Rajinikanth in a solid role after a long time. His characterization is well designed by Nelson. Rajinikanth underplays for the most part of the first half, and he transforms into a menacing force as the film progresses. This h...	9
+15	Indulged in a lavish feast watching thalaivar on the grand big screen, and that too on the FDFS. Nelsons direction and screenplay were truly scintillating, presenting an amazing blend of dark comedy and high-octane action. He truly harnessed Thalaivar pr...	9
+16	Ghilli, a 2004 Tamil film directed by Dharani, set the trends of the 00s era. A not-so intense masala film, filled with light-hearted humour and some great peppy songs, Ghilli just raised the bars set by Okkadu. From screenplay, acting, violent sequences...	10
+17	One of the evergreen best movies of kollywood. both vijays mannerism and prakshraj villanism were lit.Trisha is good in her character.This movie will definitely lift up ur mood.comedy,family,romace,friends,fight,songs,villainisim everything was perfectly...	10
+18	That was the movie that Thalapathy become all south asian girl dream lover. Thalapathy always prove that what talented actor is he. Thrisha also play nicely. Overall it is still fantastic movie. Love all the songs in the film.	10
+19	if you want watch racy action movie one of the best fast movie in vijay career and its also turnpoint  to career of vijay. must watch with family good songs and power full action screen play all is perfect.	10
+
+************************************************************************************************
+
+
+SELECT m.id, m.name, m.cast, m.language,f.audio,f.video,g.genres
+FROM movie m
+INNER JOIN `media format` f ON m.id = f.movie_id
+INNER JOIN genre g ON  f.movie_id = g.movie_id;
+
+
+*******************************************************************
+Output - joined table
+
+6	varisu	vijay,rashmika	Tamil,English,Malayalam,Telugu	MP3, DTS , Dolby Atmos	MP4 , webM ,mkv	action , comedy ,romance ,drama 
+7	vikram	Kamal Hassan,Fahadh Fassil,Vijay Sethupathy	Tamil,English,Malayalam,Telugu,Kannada	MP3,Dolby Atmos ,DTS-HD,AVI	MP4,webM,MOV,AVI	action,drama,thriller,crime,suspense
+8	Thunivu	Ajith Kumar,Manju warrier	Tamil,Malayalam,Telugu,Hindi	MP3,Dolby Atmos ,DTS-HD	MP4,MOV	Action,thriller,drama,crime fiction,gangster
+9	Jailer	RajniKanth,Ramya Krishnan,Mohan lal	Tamil,English,Malayalam,Telugu,Hindi,Kannada	MP3,Dolby Atmos ,DTS-HD	MP4,webM,mkv	comedy,action thriller,crime film
+10	Ghilli	Vijay,Trisha	Tamil	MP3,Dolby Atmos	MP4,MOV,AVI	comedy,action,romance,sports,drama
+
+********************************************************************
+
+
+
+
+SELECT  m.name,c.`artist name`,c.`roles performed`,a.skills
+FROM movie m
+INNER JOIN casting c ON  c.movie_id = m.id
+LEFT JOIN artist a ON a.`artist name` = c.`artist name`
+ORDER BY m.id;
+
+*******************************************************************
+Output - Joined tabele 1.png
+
+varisu	vijay	Rajendran son, chairman of company	Acting,dance,singing,communication,stamina
+varisu	vijay	Rajendran son, chairman of company	Acting,dance,singing,communication,stamina
+varisu	rashmika	lady love of vijay	Acting,dance,singing,communication,stamina,gymnastics
+vikram	Kamal Hassan	adopted father , ex raw agent	Acting,dance,singing,gymnastics
+vikram	Fahadh Fassil	Spy	Acting,communication,creativity,stamina
+vikram	Vijay Sethupathi	Anti hero,drug dealer	
+Thunivu	Ajith Kumar	International thief,Hero	Acting,Pilot,Car racer,drone specialist
+Thunivu	Manju warrier	Ajith partner in robberies	Acting,dance
+Jailer	RajniKanth	ex Jailer,ACP father	Acting,communication,stamina,sprituality
+Jailer	Ramya Krishnan	Rajni wife,ACP mother	Acting,dance,creativity
+Jailer	Mohan lal	Rajni friend , Special apperanace	Acting,gymnastics,martial arts
+Ghilli	Vijay	Hero,Kabbadi Team captian	Acting,dance,singing,communication,stamina
+Ghilli	Vijay	Hero,Kabbadi Team captian	Acting,dance,singing,communication,stamina
+Ghilli	Trisha	Love Interest of Vijay	Acting,dance,singing,communication,model
+************************************************************************************
+
+
+
+SELECT  m.name,r.`movie review`
+FROM movie m
+INNER JOIN reviews r ON  r.movie_id = m.id
+ORDER BY m.id;
+
+
+**************************************************************************************
+Output - Joined Table-2
+
+varisu	Vamshi rides on the traditional templated family drama plot which makes it less engaging in the beginning but as the film progresses it does entertain and ends on a high note with emotional value. Though it gives an overall feel of watching a Telugu film...
+varisu	Vamshi rides on the traditional templated family drama plot which makes it less engaging in the beginning but as the film progresses it does entertain and ends on a high note with emotional value. Though it gives an overall feel of watching a Telugu film...
+varisu	Contrary to many Youyube reviewers views this movie is worth watching multiple times.
+ Its a very good  family  story with excellent screenplay that does not bore you even for a moment.
+ Vijay show all the way.He single-handedly carries the story.He is sup...
+varisu	
+ Watched Varisu with family today. Thank you Vijay sir and Vamsi sir for giving a feel good film after long time. The movie has a decent storyline blend with comedy, family emotions, good songs and heart touching climax. Thaman BGM elevates some of the s...
+varisu	An amazing movie and a must watch for everyone... Frankly, I dont feel there is a lag or drag at all... 3 hours just flies off taking all our attention and leaves us in a smile while we walk out.. 
+ A complete pack entertainer.. Wishes to the entire team ...
+vikram	Vikram was a pure labor of passion and a 100% directorial venture of Lokesh so far in his filmography. I loved “Kaithi” movie but when I compare it with Vikram the daughter sentiment portion that Kaithi had was taking a bit more space or like mellowi...
+vikram	Directed by Lokesh Kanagaraj, VIKRAM  is a Solid well-made & smartly-written investigative Gangster thriller that is uniquely stylish, wildly ambitious and brilliantly layered action blockbuster that succeeds viscerally as well as cerebrally, featuring s...
+vikram	What an entertainer!! I would call this movie a fire cracker which bursts with high decibels continuously for 3 hours albeit with less sound for few intermittent minutes. I watched by walking to a theater 6kms away from the place I stay and I felt so hap...
+vikram	Oh my goodness, what an epic movie that was! Not sure how to describe in a single word! To handle Aandhavar in such a gangster movie is so challenging but he has done exceptional very well. VJS,Fahad & Narian has nailed it! Interval scenes oh my god cant...
+vikram	Awesome movie with excellent writing by Lokesh as he created a universe by continuing from where he left off in Kaithi. He has given equal space to Kamal Haasan, Vijay Sethupathi and Faahid Faasal and what a cameo by Suriya.
+ It is a very entertaining act...
+Thunivu	Best action sequences with Mass and Terrific act ..makes the screenplay Racy. Everyone did their role well. THALA the King has arrived and conquered in his style.First half racing like a rocket with several twist and jaw dropping scenes .We all have expe...
+Thunivu	Excellent movie. Action by AK is superb. One will not be bored throughout the movie. Manju warriors is equally good as AK. The movie takes up the subject of scams and cheating of public by financial institutions. But here I beg to differ. After watching ...
+Jailer	Jailer is a captivating cinematic masterpiece that leaves audiences on the edge of their seats from start to finish. The gripping storyline, combined with stellar performances from the cast especially Thalaivar and Laletten. Super dance choreography and ...
+Jailer	It is good to see Superstar Rajinikanth in a solid role after a long time. His characterization is well designed by Nelson. Rajinikanth underplays for the most part of the first half, and he transforms into a menacing force as the film progresses. This h...
+Jailer	Indulged in a lavish feast watching thalaivar on the grand big screen, and that too on the FDFS. Nelsons direction and screenplay were truly scintillating, presenting an amazing blend of dark comedy and high-octane action. He truly harnessed Thalaivar pr...
+Ghilli	Ghilli, a 2004 Tamil film directed by Dharani, set the trends of the 00s era. A not-so intense masala film, filled with light-hearted humour and some great peppy songs, Ghilli just raised the bars set by Okkadu. From screenplay, acting, violent sequences...
+Ghilli	One of the evergreen best movies of kollywood. both vijays mannerism and prakshraj villanism were lit.Trisha is good in her character.This movie will definitely lift up ur mood.comedy,family,romace,friends,fight,songs,villainisim everything was perfectly...
+Ghilli	That was the movie that Thalapathy become all south asian girl dream lover. Thalapathy always prove that what talented actor is he. Thrisha also play nicely. Overall it is still fantastic movie. Love all the songs in the film.
+Ghilli	if you want watch racy action movie one of the best fast movie in vijay career and its also turnpoint  to career of vijay. must watch with family good songs and power full action screen play all is perfect.
+
+********************************************************************************************************************
